@@ -1,0 +1,19 @@
+{
+  "name": "cljs-app",
+  "version": "1.0.0",
+  "description": "FIXME: description",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GSA",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "highland": "^2.6.0"
+  }
+}
