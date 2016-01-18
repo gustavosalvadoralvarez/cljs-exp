@@ -5,9 +5,12 @@
 ;; (sort-of)Idiomatic wrapper for highland.js node module
 ;; ----------------------------------------------------------------------------
 
-;; Require highland
+;; Require highland and fs
 
 (def hland (nutils/nrequire "highland"))
+
+(def fs (nutils/nrequire "fs"))
+
 
 ;; Factory fns
 
@@ -160,13 +163,21 @@
   "Calls highland constructor with x and returns instance"
   (cljs_utils.highland/hland x))
 
-(defn cljs> [x]
+(defn <cljs [x]
   "Takes a highland stream and returns a sequence of clojurescript data"
   (js->cljs (<js-array> x)))
+
+(defn file> [fl-path]
+  (_> (.createReadStream fs fl-path)))
+
+(defn <file [fl-path]
+  (_> (.createWriteStream fs fl-path)))
 
 (defn >? [x]
   "Returns true if x is a highland stream, false else"
   (get x "isStream"))
+
+
 
 ;; Necessary Boilerplate
 
